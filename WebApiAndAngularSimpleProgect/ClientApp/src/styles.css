@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+.no-margin {
+  padding: 0px;
+  margin: 0px;
+}
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+button {
+  width: 100px;
+  height: 37px;
+}
+
+.absence-label-margin-top {
+  margin-top: 32px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.container-Row-Awailable-Bicycles {
+    height: 50px;
+    background: white;
+}
+

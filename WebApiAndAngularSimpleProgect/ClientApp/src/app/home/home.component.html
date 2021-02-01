@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <h4>Create new rent</h4>
+  </div>
+  <form #newRentBike="ngForm" (ngSubmit)="CreateRentBike(newRentBike)" class="row">
+    <div class="col-4 ">
+      <div class="form-group">
+        <label>Bike name</label>
+        <input name="name" type="text" ngModel class="form-control" required/>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label>Bike type</label>
+        <select name="typeBike" class="form-control" ngModel required>
+          <option>Custom</option>
+          <option>Mountain</option>
+          <option>Highway</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="form-group">
+        <label>Rent price</label>
+        <input name="rentPrice" type="text" class="form-control" ngModel required/>
+      </div>
+    </div>
+    <div class="col-2 absence-label-margin-top">
+      <input type="submit" class="btn btn-sm btn-success" value="Submit rent" />
+    </div>
+
+  </form>
+
+  <div class="row">
+    <h4>Your rent (Total: {{rentedBikes.length}})</h4>
+  </div>
+  <div class="row container-Row-Awailable-Bicycles" *ngFor="let bike of rentedBikes">
+    <div class="col-8">
+      <label>{{bike?.name}} / {{bike?.typeBike}} / $ {{bike?.rentPrice}}</label>
+    </div>
+    <div class="col-4">
+      <div class="row justify-content-end">
+        <div class="col-6">
+          <button class="btn btn-sm btn-danger" (click)="rentInvert(bike)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <h4>Available bicycles(Total: {{availableBikes.length}})</h4>
+  </div>
+  <div class="row container-Row-Awailable-Bicycles" *ngFor="let bike of availableBikes">
+    <div class="col-8"> 
+      <label>{{bike?.name}} / {{bike?.typeBike}} / $ {{bike?.rentPrice}}</label>
+    </div>
+    <div class="col-4">
+      <div class="row justify-content-end">
+        <div class="col-4">
+          <button class="btn btn-sm btn-primary" (click)="rentInvert(bike)">Rent</button>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-sm btn-danger" (click)="deleteBike(bike)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
